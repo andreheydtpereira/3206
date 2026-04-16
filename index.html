@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prometeon Industrial V31</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="authView" class="auth-wrap">
+    <div class="auth-card">
+      <img class="auth-logo" src="home_full.png" alt="Prometeon" />
+      <div class="auth-tabs">
+        <button id="tabLogin" class="active" onclick="showAuthTab('login')">Login</button>
+        <button id="tabCadastro" onclick="showAuthTab('cadastro')">Cadastro</button>
+      </div>
+      <div id="loginPane">
+        <input id="loginEmail" placeholder="Email" />
+        <input id="loginSenha" type="password" placeholder="Senha" />
+        <button onclick="login()">Entrar</button>
+      </div>
+      <div id="cadastroPane" class="hidden">
+        <input id="cadNome" placeholder="Nome completo" />
+        <input id="cadEmail" placeholder="Email" />
+        <input id="cadSenha" type="password" placeholder="Senha" />
+        <select id="cadRole">
+          <option value="manutentor">Manutentor</option>
+          <option value="gestor">Gestor</option>
+          <option value="gestor_global">Gestor Global</option>
+        </select>
+        <input id="cadSetor" placeholder="Setor" />
+        <input id="cadArea" placeholder="Área" />
+        <button onclick="registrar()">Cadastrar usuário</button>
+      </div>
+      <div id="authMsg" class="muted"></div>
+    </div>
+  </div>
+
+  <div id="appView" class="hidden">
+    <header id="topo">
+      <img id="topImage" src="topo_visao_geral.png" alt="Topo dinâmico" />
+      <div class="header-meta">
+        <div>
+          <strong>PROMETEON</strong>
+          <div id="usuarioLabel" class="muted"></div>
+        </div>
+        <div class="row">
+          <button class="small-btn secondary hidden" id="btnGerarCenario" onclick="gerarCenarioIndustrial()">Gerar cenário industrial</button>
+          <button class="small-btn secondary hidden" id="btnMigrar" onclick="migrarModeloAntigo()">Migrar modelo antigo</button>
+          <button class="small-btn" onclick="logout()">Sair</button>
+        </div>
+      </div>
+    </header>
+    <main id="cardCentral"></main>
+    <div class="carousel-wrap"><div class="carousel-arrows"><div class="carousel-arrow">‹</div><div class="carousel-arrow">›</div></div><nav class="carousel" id="menuCarousel"></nav></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
